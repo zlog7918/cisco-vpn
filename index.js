@@ -6,7 +6,7 @@ const tmp = require('tmp')
 const x = require('throw-if-missing')
 
 module.exports = ({ exe = '/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe',
-					server = x`server`, username = x`username`, password = x`password`, acceptCertificate = `acceptCertificate`, group = `group` }) => {
+					server = x`server`, username = x`username`, password = x`password`, acceptCertificate, group }) => {
 
 	return {
 		connect: ()=>new Promise((resolve, reject) =>
