@@ -5,7 +5,7 @@ const { writeFile } = require('fs')
 const tmp = require('tmp')
 const x = require('throw-if-missing')
 
-module.exports = ({ exe = 'C:/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe',
+module.exports = ({ exe = '/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe',
 					server = x`server`, username = x`username`, password = x`password`, acceptCertificate = `acceptCertificate`, group = `group` }) => {
 
 	return {
@@ -32,10 +32,10 @@ module.exports = ({ exe = 'C:/Program Files (x86)/Cisco/Cisco AnyConnect Secure 
 				else resolve()
 			})
 		),
-		is_connected=()=>new Promise((resolve, reject)=>
+		is_connected: ()=>new Promise((resolve, reject)=>
 			exec(`"${exe}" state`, (err, stdout)=>{
 				if(err) reject(err)
-				else if(!stdout.trim().endsWith('state: Connected')) resolve(false)
+				else if(!stdout.includes('state: Connected')) resolve(false)
 				else resolve(true)
 			})
 		)
