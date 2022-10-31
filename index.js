@@ -5,7 +5,7 @@ const { writeFile } = require('fs')
 const tmp = require('tmp')
 const x = require('throw-if-missing')
 
-module.exports = ({ exe = '/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe',
+module.exports = ({ exe = 'C:/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe',
 					server = x`server`, username = x`username`, password = x`password`, acceptCertificate, group }) => {
 
 	return {
