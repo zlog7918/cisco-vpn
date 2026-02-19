@@ -26,7 +26,7 @@ vpn.is_connected()
     .then(connected => {
         if(!connected) {
             vpn.connect()
-                .then(() => console.log('was disconnected (probably from inactivity, now connected again!'))
+                .then(() => console.log('was disconnected (probably from inactivity), now connected again!'))
         } else {
             console.log('still connected!')
         }
